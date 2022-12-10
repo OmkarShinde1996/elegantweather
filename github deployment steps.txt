@@ -13,6 +13,6 @@ in this case it is - base: '/elegantweather/',
 9. npm run build - build the project
 10. git add dist -f - run this command to forcefully add dist folder into git as it is ignored in .gitignored file
 11. git commit -m "adding dist folder" - run this command to commit the changes
-12. git subtree push --prefix dist origin gh-pages - run this command to make gh-pages a subtree of our master.main branch and dist folder will get pushed into it.
+12. npm run  - run this command to make gh-pages a subtree of our master.main branch and dist folder will get pushed into it.
 13. on Github go to settings > pages and select branch as gh-pages
 
