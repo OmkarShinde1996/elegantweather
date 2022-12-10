@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+// import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import toast, { Toaster } from "react-hot-toast";
 import LocationList from "../components/LocationList";
 import WeatherDetails from "../components/WeatherDetails";
@@ -180,7 +180,7 @@ const Home = () => {
       <div>
         <Toaster position="top-center" reverseOrder={false} />
       </div>
-      <LazyLoadComponent>
+      {/* <LazyLoadComponent> */}
       <div
         className="laptop:w-screen laptop:h-screen bg-no-repeat bg-center bg-cover relative"
         style={{
@@ -380,7 +380,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      </LazyLoadComponent>
+      {/* </LazyLoadComponent> */}
     </>
   );
 };
