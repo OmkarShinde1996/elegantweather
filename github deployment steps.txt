@@ -1,0 +1,18 @@
+1. Create Github repo for the project
+2. git init - in project in VS Code
+3. git add . - add entire project
+4. git commit -m "first commit" - first commit
+5. git branch -M main - make main branch on Github
+6. git remote add origin {URL} - add origin URL
+7. git push -u origin main - push the entire code in main branch on Github
+
+8. in vite.config.ts file add below line before plugin
+base: '/{repo name}/',
+in this case it is - base: '/elegantweather/',
+
+9. npm run build - build the project
+10. git add dist -f - run this command to forcefully add dist folder into git as it is ignored in .gitignored file
+11. git commit -m "adding dist folder" - run this command to commit the changes
+12. git subtree push --prefix dist origin gh-pages - run this command to make gh-pages a subtree of our master.main branch and dist folder will get pushed into it.
+13. on Github go to settings > pages and select branch as gh-pages
+
