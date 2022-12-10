@@ -184,7 +184,7 @@ const Home = () => {
       <div
         className="laptop:w-screen laptop:h-screen bg-no-repeat bg-center bg-cover relative"
         style={{
-          backgroundImage: `url("/${weatherData?.weatherCondition}.jpg")`,
+          backgroundImage: `url("/elegantweather/${weatherData?.weatherCondition.toLowerCase()}.jpg")`,
           transitionDuration: "1.2s",
         }}
       >
