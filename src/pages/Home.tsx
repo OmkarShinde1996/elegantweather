@@ -22,6 +22,7 @@ type WeatherDataObject = {
 const Home = () => {
   const [enteredCity, setEnteredCity] = useState("mumbai");
   const [weatherIcon, setWeatherIcon] = useState("01d");
+  const [backgroundImage, setBackgroundImage] = useState("https://dr.savee-cdn.com/things/6/3/949bd20216cc4cbc101e95.webp")
   const [weatherData, setWeatherData] = useState<WeatherDataObject>({
     temp: 0,
     minTemp: 0,
@@ -67,6 +68,25 @@ const Home = () => {
           weatherDetailCondition: data.weather[0].description,
         });
         setEnteredCity("");
+        console.log(data.weather[0].main.toLowerCase());
+        
+        setBackgroundImage(
+            data.weather[0].main.toLowerCase() === "ash" ? "https://dr.savee-cdn.com/things/6/3/949b10fb5b295258e779b3.webp" :
+            data.weather[0].main.toLowerCase() === "clear" ? "https://dr.savee-cdn.com/things/6/3/949b8a0216cc4cbc101ae7.webp" :
+            data.weather[0].main.toLowerCase() === "tornado" ? "https://dr.savee-cdn.com/things/6/3/949bfe0216cc4cbc102127.webp" :
+            data.weather[0].main.toLowerCase() === "thunderstorm" ? "https://dr.savee-cdn.com/things/6/3/949bfc0216cc4cbc1020ff.webp" :
+            data.weather[0].main.toLowerCase() === "squall" ? "https://dr.savee-cdn.com/things/6/3/949bfafb830ef05c29d2f3.webp" :
+            data.weather[0].main.toLowerCase() === "snow" ? "https://dr.savee-cdn.com/things/6/3/949bf7fb830ef05c29d264.webp" :
+            data.weather[0].main.toLowerCase() === "smoke" ? "https://dr.savee-cdn.com/things/6/3/949bf5fb830ef05c29d22b.webp" :
+            data.weather[0].main.toLowerCase() === "sand" ? "https://dr.savee-cdn.com/things/6/3/949bf2fb830ef05c29d1c8.webp" :
+            data.weather[0].main.toLowerCase() === "mist" ? "https://dr.savee-cdn.com/things/6/3/949bed0216cc4cbc102096.webp" :
+            data.weather[0].main.toLowerCase() === "rain" ? "https://dr.savee-cdn.com/things/6/3/949beffb830ef05c29d18c.webp" :
+            data.weather[0].main.toLowerCase() === "haze" ? "https://dr.savee-cdn.com/things/6/3/949beb0216cc4cbc102074.webp" :
+            data.weather[0].main.toLowerCase() === "drizzle" ? "https://dr.savee-cdn.com/things/6/3/949bd80216cc4cbc101ef8.webp" :
+            data.weather[0].main.toLowerCase() === "dust" ? "https://dr.savee-cdn.com/things/6/3/949be40216cc4cbc101fe5.webp" :
+            data.weather[0].main.toLowerCase() === "fog" ? "https://dr.savee-cdn.com/things/6/3/949be70216cc4cbc10200d.webp" :
+            "https://dr.savee-cdn.com/things/6/3/949bd20216cc4cbc101e95.webp"
+        )
         setWeatherConditionIcon(data.weather[0].description);
       })
       .catch(() => {
@@ -101,6 +121,25 @@ const Home = () => {
           weatherDetailCondition: data.weather[0].description,
         });
         setEnteredCity("");
+        console.log(data.weather[0].main.toLowerCase());
+        
+        setBackgroundImage(
+            data.weather[0].main.toLowerCase() === "ash" ? "https://dr.savee-cdn.com/things/6/3/949b10fb5b295258e779b3.webp" :
+            data.weather[0].main.toLowerCase() === "clear" ? "https://dr.savee-cdn.com/things/6/3/949b8a0216cc4cbc101ae7.webp" :
+            data.weather[0].main.toLowerCase() === "tornado" ? "https://dr.savee-cdn.com/things/6/3/949bfe0216cc4cbc102127.webp" :
+            data.weather[0].main.toLowerCase() === "thunderstorm" ? "https://dr.savee-cdn.com/things/6/3/949bfc0216cc4cbc1020ff.webp" :
+            data.weather[0].main.toLowerCase() === "squall" ? "https://dr.savee-cdn.com/things/6/3/949bfafb830ef05c29d2f3.webp" :
+            data.weather[0].main.toLowerCase() === "snow" ? "https://dr.savee-cdn.com/things/6/3/949bf7fb830ef05c29d264.webp" :
+            data.weather[0].main.toLowerCase() === "smoke" ? "https://dr.savee-cdn.com/things/6/3/949bf5fb830ef05c29d22b.webp" :
+            data.weather[0].main.toLowerCase() === "sand" ? "https://dr.savee-cdn.com/things/6/3/949bf2fb830ef05c29d1c8.webp" :
+            data.weather[0].main.toLowerCase() === "mist" ? "https://dr.savee-cdn.com/things/6/3/949bed0216cc4cbc102096.webp" :
+            data.weather[0].main.toLowerCase() === "rain" ? "https://dr.savee-cdn.com/things/6/3/949beffb830ef05c29d18c.webp" :
+            data.weather[0].main.toLowerCase() === "haze" ? "https://dr.savee-cdn.com/things/6/3/949beb0216cc4cbc102074.webp" :
+            data.weather[0].main.toLowerCase() === "drizzle" ? "https://dr.savee-cdn.com/things/6/3/949bd80216cc4cbc101ef8.webp" :
+            data.weather[0].main.toLowerCase() === "dust" ? "https://dr.savee-cdn.com/things/6/3/949be40216cc4cbc101fe5.webp" :
+            data.weather[0].main.toLowerCase() === "fog" ? "https://dr.savee-cdn.com/things/6/3/949be70216cc4cbc10200d.webp" :
+            "https://dr.savee-cdn.com/things/6/3/949bd20216cc4cbc101e95.webp"
+        )
         setWeatherConditionIcon(data.weather[0].description);
       })
       .catch(() => {
@@ -184,7 +223,8 @@ const Home = () => {
       <div
         className="laptop:w-screen laptop:h-screen bg-no-repeat bg-center bg-cover relative"
         style={{
-          backgroundImage: `url("/elegantweather/${weatherData?.weatherCondition.toLowerCase()}.jpg")`,
+        //   backgroundImage: `url("/elegantweather/${weatherData?.weatherCondition.toLowerCase()}.jpg")`,
+        backgroundImage: `url(${backgroundImage})`,
           transitionDuration: "1.2s",
         }}
       >
