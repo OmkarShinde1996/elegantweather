@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import toast, { Toaster } from "react-hot-toast";
 import LocationList from "../components/LocationList";
 import WeatherDetails from "../components/WeatherDetails";
@@ -121,7 +120,6 @@ const Home = () => {
           weatherDetailCondition: data.weather[0].description,
         });
         setEnteredCity("");
-        console.log(data.weather[0].main.toLowerCase());
         
         setBackgroundImage(
             data.weather[0].main.toLowerCase() === "ash" ? "https://dr.savee-cdn.com/things/6/3/949b10fb5b295258e779b3.webp" :
@@ -219,7 +217,6 @@ const Home = () => {
       <div>
         <Toaster position="top-center" reverseOrder={false} />
       </div>
-      {/* <LazyLoadComponent> */}
       <div
         className="laptop:w-screen laptop:h-screen bg-no-repeat bg-center bg-cover relative"
         style={{
@@ -236,15 +233,15 @@ const Home = () => {
             fontStretch: "normal",
             color:
               weatherData?.weatherCondition === "Snow" ||
-              weatherData?.weatherCondition === "fog" ||
+              weatherData?.weatherCondition === "Mist" ||
               weatherData?.weatherCondition === "Haze"
                 ? "#22262B"
                 : weatherData?.weatherCondition === "Rain" ||
                   weatherData?.weatherCondition === "Drizzle" ||
+                  weatherData?.weatherCondition === "Fog" ||
                   weatherData?.weatherCondition === "Tornado" ||
                   weatherData?.weatherCondition === "Thunderstorm" ||
                   weatherData?.weatherCondition === "Sunny" ||
-                  weatherData?.weatherCondition === "Mist" ||
                   weatherData?.weatherCondition === "Squall" ||
                   weatherData?.weatherCondition === "Clear" ||
                   weatherData?.weatherCondition === "Ash" ||
@@ -252,27 +249,27 @@ const Home = () => {
                   weatherData?.weatherCondition === "Sand" ||
                   weatherData?.weatherCondition === "Clouds"
                 ? "#FFF"
-                : "#2D8ECB",
+                : "#FFF",
             transitionDuration: "1.2s",
           }}
         >
           elegantweather
         </h1>
-        <div className="flex mobile:flex-col laptop:flex-row mobile:mt-24 mobile:ml-8 laptop:items-center absolute laptop:ml-20 laptop:mt-[75vh] text-white drop-shadow-lg">
+        <div className="flex mobile:flex-col smmobile:flex-col laptop:flex-row mobile:mt-24 smmobile:mt-24 mobile:ml-8 smmobile:ml-4 laptop:items-center absolute laptop:ml-20 laptop:mt-[75vh] text-white drop-shadow-lg">
           <div
-            className="font-semibold mobile:text-4xl tablet:text-4xl laptop:text-8xl laptop:mr-5"
+            className="font-semibold mobile:text-4xl smmobile:text-4xl tablet:text-4xl laptop:text-8xl laptop:mr-5"
             style={{
               color:
                 weatherData?.weatherCondition === "Snow" ||
-                weatherData?.weatherCondition === "fog" ||
+                weatherData?.weatherCondition === "Mist" ||
                 weatherData?.weatherCondition === "Haze"
                   ? "#22262B"
                   : weatherData?.weatherCondition === "Rain" ||
                     weatherData?.weatherCondition === "Drizzle" ||
                     weatherData?.weatherCondition === "Tornado" ||
+                    weatherData?.weatherCondition === "Fog" ||
                     weatherData?.weatherCondition === "Thunderstorm" ||
                     weatherData?.weatherCondition === "Sunny" ||
-                    weatherData?.weatherCondition === "Mist" ||
                     weatherData?.weatherCondition === "Squall" ||
                     weatherData?.weatherCondition === "Clear" ||
                     weatherData?.weatherCondition === "Ash" ||
@@ -280,7 +277,7 @@ const Home = () => {
                     weatherData?.weatherCondition === "Sand" ||
                     weatherData?.weatherCondition === "Clouds"
                   ? "#FFF"
-                  : "#2D8ECB",
+                  : "#FFF",
               transitionDuration: "1.2s",
             }}
           >
@@ -295,15 +292,15 @@ const Home = () => {
             style={{
               color:
                 weatherData?.weatherCondition === "Snow" ||
-                weatherData?.weatherCondition === "fog" ||
+                weatherData?.weatherCondition === "Mist" ||
                 weatherData?.weatherCondition === "Haze"
                   ? "#22262B"
                   : weatherData?.weatherCondition === "Rain" ||
                     weatherData?.weatherCondition === "Drizzle" ||
                     weatherData?.weatherCondition === "Tornado" ||
+                    weatherData?.weatherCondition === "Fog" ||
                     weatherData?.weatherCondition === "Thunderstorm" ||
                     weatherData?.weatherCondition === "Sunny" ||
-                    weatherData?.weatherCondition === "Mist" ||
                     weatherData?.weatherCondition === "Squall" ||
                     weatherData?.weatherCondition === "Clear" ||
                     weatherData?.weatherCondition === "Ash" ||
@@ -311,15 +308,15 @@ const Home = () => {
                     weatherData?.weatherCondition === "Sand" ||
                     weatherData?.weatherCondition === "Clouds"
                   ? "#FFF"
-                  : "#2D8ECB",
+                  : "#FFF",
               transitionDuration: "1.2s",
             }}
           >
-            <div className="font-normal mobile:text-xl laptop:text-5xl">
+            <div className="font-normal mobile:text-xl smmobile:text-xl laptop:text-5xl">
               {typeof weatherData?.city === "string" ? weatherData.city : "NA"}
             </div>{" "}
             {/*city name*/}
-            <div className="font-normal mobile:text-xs tablet:text-sm laptop:text-base">
+            <div className="font-normal mobile:text-xs smmobile:text-xs tablet:text-sm laptop:text-base">
               {DateTime}
             </div>
           </div>
@@ -328,7 +325,7 @@ const Home = () => {
             style={{
               color:
                 weatherData?.weatherCondition === "Snow" ||
-                weatherData?.weatherCondition === "fog" ||
+                weatherData?.weatherCondition === "Mist" ||
                 weatherData?.weatherCondition === "Haze"
                   ? "#22262B"
                   : weatherData?.weatherCondition === "Rain" ||
@@ -336,26 +333,26 @@ const Home = () => {
                     weatherData?.weatherCondition === "Tornado" ||
                     weatherData?.weatherCondition === "Thunderstorm" ||
                     weatherData?.weatherCondition === "Sunny" ||
-                    weatherData?.weatherCondition === "Mist" ||
                     weatherData?.weatherCondition === "Squall" ||
+                    weatherData?.weatherCondition === "Fog" ||
                     weatherData?.weatherCondition === "Clear" ||
                     weatherData?.weatherCondition === "Ash" ||
                     weatherData?.weatherCondition === "Smoke" ||
                     weatherData?.weatherCondition === "Sand" ||
                     weatherData?.weatherCondition === "Clouds"
                   ? "#FFF"
-                  : "#2D8ECB",
+                  : "#FFF",
               transitionDuration: "1.2s",
             }}
           >
             <div>
               <img
                 src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-                className="mobile:h-6 laptop:h-10"
+                className="mobile:h-6 smmobile:h-6 laptop:h-10"
               />
             </div>
             {/*weather icon*/}
-            <div className="font-normal mobile:text-xs tablet:text-sm laptop:text-base">
+            <div className="font-normal mobile:text-xs smmobile:text-xs tablet:text-sm laptop:text-base">
               {typeof weatherData?.weatherCondition === "string"
                 ? weatherData.weatherCondition
                 : "NA"}
@@ -363,10 +360,10 @@ const Home = () => {
             {/*weather condition*/}
           </div>
         </div>
-        <div className="flex mobile:items-end mobile:pt-80 laptop:pt-0 laptop:justify-end">
-          <div className="mobile:h-screen laptop:h-screen mobile:w-screen laptop:w-96 bg-black/30 backdrop-blur-md">
+        <div className="flex smmobile:items-end smmobile:pt-80 mobile:items-end mobile:pt-80 laptop:pt-0 laptop:justify-end">
+          <div className="mobile:h-screen tablet:h-screen laptop:h-screen smmobile:w-screen mobile:w-screen laptop:w-96 bg-black/30 backdrop-blur-md">
             {/* <InputForm /> */}
-            <form className="mobile:pl-5 laptop:pl-14 flex">
+            <form className="smmobile:pl-5 mobile:pl-5 laptop:pl-14 flex">
               <input
                 type="text"
                 value={enteredCity}
@@ -398,9 +395,9 @@ const Home = () => {
                           weatherData?.weatherCondition === "Haze" ||
                           weatherData?.weatherCondition === "Clear" ||
                           weatherData?.weatherCondition === "Ash" ||
-                          weatherData?.weatherCondition === "fog"
+                          weatherData?.weatherCondition === "Fog"
                         ? "#AACDE1"
-                        : "#2D8ECB",
+                        : "#FFF",
                     transitionDuration: "1.2s",
                   }}
                 >
@@ -420,7 +417,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* </LazyLoadComponent> */}
     </>
   );
 };
